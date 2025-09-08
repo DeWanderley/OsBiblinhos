@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Os Biblinhos – DW</title>
+  <meta name="description" content="Coleção de livros infantis ilustrados para ensinar a Bíblia com amor, cor e propósito às crianças." />
+  <meta name="author" content="DW" />
+  <meta property="og:title" content="Os Biblinhos – Série Infantil Bíblica" />
+  <meta property="og:description" content="Apresente as maravilhas da Bíblia para crianças através de histórias encantadoras e atividades divertidas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="capalivro.png" />
+  <meta name="theme-color" content="#93c808" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --brand:#93c808;
+      --brand-dark:#859e3a;
+      --accent:#f59e0b;
+      --text:#0f172a;
+      --muted:#64748b;
+      --light:#f8fafc;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2, 6, 23, .15);
+    }
+    *{box-sizing:border-box;transition:all 0.3s ease-in-out}
+    html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--text);background:var(--bg)}
+    a{color:var(--brand);text-decoration:none}
+    img, video{max-width:100%;display:block;height:auto}
+    .container{width:min(1120px, 92vw);margin-inline:auto}
+
+    /* HEADER */
+    header{position:sticky;top:0;z-index:50;background:#ffffffd9;backdrop-filter:saturate(1.1) blur(6px);border-bottom:1px solid #e2e8f0}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0;position:relative}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand img{width:48px;height:48px;border-radius:10px;box-shadow:var(--shadow)}
+    .brand strong{font-size:1.1rem;color:var(--brand-dark)}
+    .nav a.btn{padding:.6rem 1rem;border-radius:999px;border:2px solid var(--brand);color:var(--brand-dark);font-weight:700;transition:all 0.3s ease-in-out}
+    .nav a.btn:hover{background:var(--brand);color:white;transform:scale(1.05)}
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(180deg, #e8f7d0 0%, #ffffff 70%) no-repeat center center;
+      padding:64px 0 40px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      left:10px;
+      width:300px;
+      height:300px;
+      background:url('solanimado.mp4') no-repeat center center/cover;
+      opacity:0.9;
+      z-index:0;
+    }
+    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;position:relative;z-index:1}
+    .kicker{display:inline-block;padding:.25rem .75rem;border-radius:999px;background:#ecfccb;border:1px solid #d9f99d;color:var(--brand-dark);font-weight:700}
+    .title{font-size:clamp(1.9rem, 3.6vw, 3rem);line-height:1.15;margin:.5rem 0 1rem;font-weight:900;color:var(--text);animation:fadeIn 1.5s ease}
+    .subtitle{color:#334155;max-width:60ch;animation:fadeIn 2s ease}
+    .cta{margin-top:1.25rem;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.15rem;border-radius:14px;border:0;font-weight:800;box-shadow:var(--shadow);cursor:pointer;text-decoration:none;transition:all 0.3s ease-in-out}
+    .btn-primary{background:var(--brand);color:white}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-2px)}
+    .hero-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/8;object-fit:cover;animation:fadeIn 2.5s ease}
+    .badges{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap;color:var(--text);animation:fadeIn 3s ease}
+    .badge{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:.4rem .7rem}
+    .badge small{color:#334155}
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    /* SECTIONS */
+    section{padding:72px 0;animation:fadeIn 1.5s ease}
+    .section-title{font-size:clamp(1.4rem, 2.4vw, 2rem);margin:0 0 12px;font-weight:900;color:var(--brand-dark)}
+    .section-lead{color:#334155;max-width:70ch}
+
+    /* GRID */
+    .grid{display:grid;gap:20px}
+    .grid-3{grid-template-columns:repeat(3, 1fr)}
+    .card{background:#ffffff;border:1px solid #e2e8f0;padding:22px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform 0.3s ease}
+    .card:hover{transform:translateY(-5px)}
+    .card h3{margin:.2rem 0 .6rem}
+    .icon{width:38px;aspect-ratio:1;border-radius:12px;background:#ecfccb;display:grid;place-items:center;font-weight:900;color:var(--brand-dark)}
+
+    /* SPLIT */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+    .split .visual{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#e2e8f0;aspect-ratio:3/4}
+
+    /* CONTACT BACKGROUND */
+    #contato{
+      position:relative;
+      background:var(--light);
+      overflow:hidden;
+    }
+    #contato::before{
+      content:"";
+      position:absolute;
+      bottom:0;
+      right:0;
+      width:300px;
+      height:300px;
+      background:url('Girafa.png') no-repeat center center/contain;
+      opacity:0.8;
+      z-index:0;
+    }
+    #contato .container{
+      position:relative;
+      z-index:1;
+    }
+    .contact-box{
+      background:white;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      max-width:400px;
+    }
+
+    /* FOOTER */
+    footer{background:var(--brand-dark);color:#f0fdf4;padding:36px 0;margin-top:40px;text-align:center}
+    footer a{color:#fef9c3}
+
+    @media (max-width: 900px){
+      .hero-wrap,.split{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .hero-media,.split .visual{aspect-ratio:3/4;width:100%;height:auto}
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logoDW.png" alt="Logo Os Biblinhos" />
+        <strong>Os Biblinhos</strong>
+      </div>
+      <nav class="menu">
+        <a href="#quem-e-dw" class="btn btn-ghost">Quem é DW</a>
+        <a href="#por-que-falar" class="btn btn-ghost">Por que falar de Deus</a>
+        <a href="#como-adquirir" class="btn btn-ghost">Como adquirir</a>
+        <a href="#contato" class="btn btn-ghost">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="kicker">Coleção ilustrada</span>
+        <h1 class="title">Ensine a Bíblia às crianças com <span style="color:var(--brand)">amor</span> e <span style="color:var(--accent)">propósito</span></h1>
+        <p class="subtitle">Histórias bíblicas encantadoras e atividades lúdicas que fortalecem a fé e os valores na infância.</p>
+        <div class="cta">
+          <a href="#como-adquirir" class="btn btn-primary">Garanta seus livros</a>
+        </div>
+        <div class="badges">
+          <div class="badge"><small>Educação Infantil</small></div>
+          <div class="badge"><small>Fé e Valores</small></div>
+          <div class="badge"><small>Atividades divertidas</small></div>
+        </div>
+      </div>
+      <figure>
+        <img class="hero-media" src="capalivro.png" alt="Capa do livro Os Biblinhos – A Criação do Mundo" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- QUEM É DW -->
+  <section id="quem-e-dw">
+    <div class="container split" style="grid-template-columns:1fr 1fr;">
+      <figure class="visual">
+        <img src="fotoDW.jpeg" alt="Foto de Débora Wanderley, autora da série Os Biblinhos" />
+      </figure>
+      <div>
+        <h2 class="section-title">Quem é DW?</h2>
+        <p class="section-lead">Sou Débora Wanderley, mãe e pedagoga especialista em Educação Infantil. Apaixonada por Deus, acredito que o mundo pode ser transformado através das crianças. Criei <strong>Os Biblinhos</strong> para auxiliar famílias na formação de caráter e valores sólidos baseados na Palavra de Deus.</p>
+        <div class="grid grid-3" style="margin-top:18px">
+          <div class="card"><div class="icon">🎯</div><h3>Propósito</h3><p>Materiais que contam as histórias bíblicas de forma clara e envolvente.</p></div>
+          <div class="card"><div class="icon">🧒</div><h3>Infância em foco</h3><p>Textos curtos, ilustrações lúdicas e atividades que estimulam a imaginação.</p></div>
+          <div class="card"><div class="icon">📚</div><h3>Família e fé</h3><p>Perfeito para leitura em família, escola dominical e presentes especiais.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE FALAR DE DEUS -->
+  <section id="por-que-falar" style="background:var(--light)">
+  <div class="container split">
+    <div>
+      <h2 class="section-title">Por que falar de Deus para crianças?</h2>
+      <p class="section-lead">
+        Falar de Deus para as crianças é plantar sementes que florescerão por toda a vida. 
+        A Bíblia nos mostra que essa é uma missão de amor, onde passamos de geração em geração 
+        as maravilhas do Senhor e a beleza de sua Palavra.
+      </p>
+      <p class="section-lead">
+        Como nos ensina Deuteronômio 6:6-7, devemos falar sobre Deus em todos os momentos, 
+        construindo um alicerce sólido de fé e valores. Ao fazer isso, preparamos nossos filhos 
+        para crescerem com um coração justo e um espírito confiante, prontos para a vida.
+      </p>
+      <div class="grid grid-3" style="margin-top:20px">
+        <article class="card">
+          <h3>Caráter que cresce</h3>
+          <p>Histórias bíblicas que ensinam virtudes como coragem, generosidade e perdão.</p>
+        </article>
+        <article class="card">
+          <h3>Afeto e pertencimento</h3>
+          <p>Crianças que conhecem o amor de Deus desenvolvem segurança emocional e empatia.</p>
+        </article>
+        <article class="card">
+          <h3>Sabedoria para o dia a dia</h3>
+          <p>Princípios práticos que transformam a rotina familiar e fortalecem vínculos.</p>
+        </article>
+      </div>
+    </div>
+    <figure class="visual">
+      <img src="biblinhos2.png" alt="Crianças lendo a Bíblia" />
+    </figure>
+  </div>
+</section>
+
+
+  <!-- COMO ADQUIRIR -->
+  <section id="como-adquirir">
+<div class="container">
+<h2 class="section-title">Como adquirir os livros</h2>
+<p class="section-lead">Apresente às crianças um universo de fé, diversão e aprendizado. Adquira já o <strong>Kit promocional</strong> com 3 livros digitais:</p>
+<div class="grid grid-3" style="margin-top:20px">
+<figure class="card"><img src="capalivro.png" alt="Os Biblinhos – A Criação do Mundo" /></figure>
+<figure class="card"><img src="capaatividade.png" alt="Os Biblinhos – Livro de Atividades" /></figure>
+<figure class="card"><img src="Antes de dormirCapa.png" alt="Os Biblinhos – Antes de Dormir" /></figure>
+</div>
+<div class="card" style="margin-top:20px;text-align:center">
+<h3>Oferta Especial</h3>
+<p>Leve o Kit completo por apenas <strong>R$ 19,90</strong>! Inclui: <br> 📖 A Criação do Mundo <br> ✏️ Livro de Atividades <br> 🙏 Antes de Dormir (bônus exclusivo).</p>
+<div class="cta" style="justify-content:center;">
+  <button><a class="btn btn-primary" href="https://seu-link-de-compra.com">Quero o Kit</a></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container split">
+      <div class="contact-box">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-lead">Tem dúvidas, sugestões ou deseja falar conosco? Preencha os dados abaixo ou envie um e-mail para <a href="mailto:osbiblinhos@gmail.com">osbiblinhos@gmail.com</a></p>
+        <form>
+          <input type="text" placeholder="Nome" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:var(--radius);">
+          <input type="email" placeholder="Email" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:var(--radius);">
+          <textarea placeholder="Mensagem" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:var(--radius);"></textarea>
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p><strong>Os Biblinhos</strong> · © <span id="y"></span> · Todos os direitos reservados</p>
+      <p><a href="#quem-e-dw">Voltar ao topo</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
